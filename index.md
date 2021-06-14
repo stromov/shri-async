@@ -49,7 +49,7 @@ style: |
 function add2(a, b) {
     return new Promise((resolve) => {
         add(a, b, (result) => {
-            resolve(result);</mark>
+            resolve(result);
         });
     });
 }
@@ -176,6 +176,7 @@ Promise.prototype._any = function (list) {
 ```
 
 ## Очищаем по кнопке
+{:.fullscreen}
 
 ```js
     button$.pipe(tap(() => {
@@ -186,6 +187,7 @@ Promise.prototype._any = function (list) {
 ```
 
 ## Отменяем запросы
+{:.fullscreen}
 
 ```js
     const resolveCancelRequest = () => {
@@ -202,6 +204,7 @@ Promise.prototype._any = function (list) {
 ```
 
 ## Проверяем длину ответа
+{:.fullscreen}
 
 ```js
     const resolveRaceCondition = () => {

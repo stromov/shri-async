@@ -163,7 +163,6 @@ Promise.prototype._any = function (list) {
 ```
 
 ## Элементы и потоки
-{:.fullscreen}
 
 ```js
     const input = document.getElementById('input');
@@ -176,7 +175,6 @@ Promise.prototype._any = function (list) {
 ```
 
 ## Очищаем по кнопке
-{:.fullscreen}
 
 ```js
     button$.pipe(tap(() => {
@@ -187,7 +185,6 @@ Promise.prototype._any = function (list) {
 ```
 
 ## Отменяем запросы
-{:.fullscreen}
 
 ```js
     const resolveCancelRequest = () => {
@@ -204,7 +201,6 @@ Promise.prototype._any = function (list) {
 ```
 
 ## Проверяем длину ответа
-{:.fullscreen}
 
 ```js
     const resolveRaceCondition = () => {

@@ -168,7 +168,9 @@ Promise.prototype._any = function (list) {
     const input = document.getElementById('input');
     const button = document.getElementById('button');
     const container = document.getElementById('response-container');
-    const cancelPrevRequestContainer = document.getElementById('cancel-prev-request-container');
+    const cancelPrevRequestContainer = document.getElementById(
+        'cancel-prev-request-container'
+    );
 
     const input$ = fromEvent(input, 'keyup');
     const button$ = fromEvent(button, 'click');
@@ -179,8 +181,8 @@ Promise.prototype._any = function (list) {
 ```js
     button$.pipe(tap(() => {
         input.value = '';
-        container.innerHTML = '';
-        cancelPrevRequestContainer.innerHTML = '';
+        container.innerText = '';
+        cancelPrevRequestContainer.innerText = '';
     })).subscribe();
 ```
 

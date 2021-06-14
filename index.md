@@ -88,7 +88,7 @@ function exec(fn, ...args) {
 const result = await exec(add, 5, 3)
 ```
 
-## поиск максимального элемента
+## Поиск максимального элемента
 {:.fullscreen}
 
 ```js
@@ -162,7 +162,66 @@ Promise.prototype._any = function (list) {
 };
 ```
 
-## Спасибо за внимание!
+## Элементы и потоки
+{:.fullscreen}
+
+```js
+    const input = document.getElementById('input');
+    const button = document.getElementById('button');
+    const container = document.getElementById('response-container');
+    const cancelPrevRequestContainer = document.getElementById('cancel-prev-request-container');
+
+    const input$ = fromEvent(input, 'keyup');
+    const button$ = fromEvent(button, 'click');
+```
+
+## Очищаем по кнопке
+
+```js
+    button$.pipe(tap(() => {
+        input.value = '';
+        container.innerHTML = '';
+        cancelPrevRequestContainer.innerHTML = '';
+    })).subscribe();
+```
+
+## Отменяем запросы
+
+```js
+    const resolveCancelRequest = () => {
+        input$.pipe(
+            pluck('target', 'value'),
+            switchMap(
+                searchString => getApiResponse(searchString)
+            )
+        )
+        .subscribe(response => {
+            cancelPrevRequestContainer.innerText = response;
+        });
+    };
+```
+
+## Проверяем длину ответа
+
+```js
+    const resolveRaceCondition = () => {
+        input$.pipe(
+            pluck('target', 'value'),
+            mergeMap(
+                searchString => getApiResponse(searchString)
+            )
+        )
+        .subscribe(response => {
+                if(container.innerText.length < response.length) {
+                    container.innerText = response;
+                }
+            
+        });
+    };
+```
+
+
+## Все молодцы!
 {:.section}
 
 ## Контакты 

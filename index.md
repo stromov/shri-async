@@ -213,10 +213,9 @@ Promise.prototype._any = function (list) {
             )
         )
         .subscribe(response => {
-                if(container.innerText.length < response.length) {
+                if (container.innerText.length < response.length) {
                     container.innerText = response;
                 }
-            
         });
     };
 ```

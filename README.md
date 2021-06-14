@@ -1,0 +1,1 @@
+[Слайды](https://pages.github.yandex-team.ru/stromovy/rxjs/)
